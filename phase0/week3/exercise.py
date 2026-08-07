@@ -18,7 +18,10 @@ print("=== 练习 1: 均值与方差 ===")
 
 def stats(data):
     # TODO: 在这里写你的代码, 并 return (mean, variance)
-    pass
+    mean = np.mean(data)
+    variance = np.var(data)
+    return (mean, variance) 
+
 
 
 assert np.isclose(stats([1, 2, 3, 4])[0], 2.5)
@@ -36,7 +39,8 @@ print("\n=== 练习 2: 线性回归 ===")
 
 def least_squares(X, y):
     # TODO: 在这里写你的代码, 并 return w
-    pass
+    w = np.linalg.inv(X.T @ X) @ X.T @ y
+    return w
 
 
 # 造数据: y = 2 + 3x
@@ -60,7 +64,9 @@ def forward(x, W1, b1, W2, b2):
     # TODO: 在这里写你的代码
     # 第 1 步: h = np.tanh(x @ W1 + b1)
     # 第 2 步: return h @ W2 + b2
-    pass
+    h = np.tanh(x @ W1 + b1)
+    return h @ W2 + b2
+
 
 
 np.random.seed(0)
@@ -91,10 +97,14 @@ def plot_sin_cos():
     #   plt.plot(x, np.sin(x), label="sin")
     #   plt.plot(x, np.cos(x), label="cos")
     #   plt.legend(); plt.show()
-    pass
+    x = np.linspace(-np.pi, np.pi, 100)
+    plt.plot(x, np.sin(x), label="sin")
+    plt.plot(x, np.cos(x), label="cos")
+    plt.legend()
+    plt.show()
 
 
 # 取消下面这行的注释会弹出绘图窗口:
-# plot_sin_cos()
+plot_sin_cos()
 
 print("\nWeek 3 练习完成!")

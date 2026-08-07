@@ -14,6 +14,10 @@ Phase 0 / Week 1 — Python 基础 I 练习
 print("=== 练习 1: 偶数 ===")
 # TODO: 在这里写你的代码
 # 提示: for i in range(1, 101): ...
+for i in range(1,101):
+    if(i % 2 == 0):
+        print(i)
+
 
 
 # ---------------------------------------------------------------
@@ -26,7 +30,10 @@ print("\n=== 练习 2: 闰年 ===")
 
 def is_leap(year):
     # TODO: 在这里写你的代码, 并 return True/False
-    pass
+    if((year % 4 == 0 and year % 100 != 0) or year%400==0):
+        return True
+    else:
+        return False
 
 
 # 测试: 下面这些断言通过说明函数写对了
@@ -46,7 +53,11 @@ print("\n=== 练习 3: 列表去重 ===")
 
 def unique(lst):
     # TODO: 在这里写你的代码, 并 return 新列表
-    pass
+    result = []
+    for item in lst:
+        if item not in result:
+            result.append(item)
+    return result
 
 
 assert unique([1, 2, 2, 3, 3, 3]) == [1, 2, 3]
@@ -64,7 +75,12 @@ print("\n=== 练习 4: 元音统计 ===")
 
 def count_vowels(s):
     # TODO: 在这里写你的代码, 并 return 个数
-    pass
+    vowels = "aeiou"
+    count=0
+    for ch in s.lower():
+        if ch in vowels:
+            count+=1
+    return count
 
 
 assert count_vowels("hello") == 2   # e, o
